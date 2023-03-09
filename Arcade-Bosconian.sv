@@ -236,7 +236,7 @@ always @(posedge clk_sys)
 
 ////////////////////   CLOCKS   ///////////////////
 
-wire clk_sys, clk_12m, clk_24m, clk_48m;
+wire clk_sys, clk_48m;
 wire pll_locked;
 
 pll pll
@@ -244,9 +244,7 @@ pll pll
 	.refclk(CLK_50M),
 	.rst(0),
 	.outclk_0(clk_48m),
-	.outclk_1(clk_24m),
-	.outclk_2(clk_sys),
-	.outclk_3(clk_12m),
+	.outclk_1(clk_sys),
 	.locked(pll_locked)
 );
 
@@ -397,8 +395,8 @@ bosconian bosconian
 	.video_b(b),
 	.video_hsync_n(hsync_n),
 	.video_vsync_n(vsync_n),
-  .video_hblank_n(hblank_n),
-  .video_vblank_n(vblank_n),
+	.video_hblank_n(hblank_n),
+	.video_vblank_n(vblank_n),
 
 	.audio(audio),
 
